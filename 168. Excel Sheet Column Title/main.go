@@ -14,16 +14,6 @@ import "log"
 //     27 -> AA
 //     28 -> AB
 
-// StringBuilder result = new StringBuilder();
-
-// while(n>0){
-//     n--;
-//     result.insert(0, (char)('A' + n % 26));
-//     n /= 26;
-// }
-
-// return result.toString();
-
 func convertToTitle(n int) string {
 	ret := ""
 	for n > 0 {

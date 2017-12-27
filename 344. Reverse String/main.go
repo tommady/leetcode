@@ -1,21 +1,31 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 )
 
 func reverseString(s string) string {
-        ret := ""
-        for i := len(s)-1; i >= 0; i-- {
-                ret += string(s[i])
-        }
-        return ret
+	if len(s) <= 1 {
+		return s
+	}
+
+	i, j := 0, len(s)-1
+	ret := make([]byte, len(s))
+
+	for i <= j {
+		ret[i] = s[j]
+		ret[j] = s[i]
+		i++
+		j--
+	}
+
+	return string(ret)
 }
 
-func main (){
-        expect := "olleh"
-        actual := reverseString("hello")
-        if expect != actual {
-                fmt.Printf("expect:%v, actual:%v\n", expect, actual)
-        }
+func main() {
+	expect := "olleh"
+	actual := reverseString("hello")
+	if expect != actual {
+		fmt.Printf("expect:%v, actual:%v\n", expect, actual)
+	}
 }

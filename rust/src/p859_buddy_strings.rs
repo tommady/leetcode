@@ -41,30 +41,26 @@ impl Solution {
         }
 
         let mut a_set = HashMap::<&str, usize>::new();
-        let mut diff = 0;
-        let mut a_diff = Vec::new();
-        let mut b_diff = Vec::new();
+        let mut diff = Vec::new();
 
         for i in 0..a.len() {
             a_set.insert(&a[i..i + 1], i);
 
             if a[i..i + 1] != b[i..i + 1] {
-                diff += 1;
-                if diff > 2 {
+                diff.push(i);
+                if diff.len() > 2 {
                     return false;
                 }
-                a_diff.push(i);
-                b_diff.push(i);
             }
         }
 
-        if diff == 0 {
+        if diff.len() == 0 {
             return a_set.len() != a.len();
         }
 
-        diff == 2
-            && a[a_diff[0]..a_diff[0] + 1] == b[b_diff[1]..b_diff[1] + 1]
-            && a[a_diff[1]..a_diff[1] + 1] == b[b_diff[0]..b_diff[0] + 1]
+        diff.len() == 2
+            && a[diff[0]..diff[0] + 1] == b[diff[1]..diff[1] + 1]
+            && a[diff[1]..diff[1] + 1] == b[diff[0]..diff[0] + 1]
     }
 }
 

@@ -44,9 +44,9 @@ impl Solution {
         let mut diff = Vec::new();
 
         for i in 0..a.len() {
-            a_set.insert(&a[i..i + 1], i);
+            a_set.insert(&a[i..=i], i);
 
-            if a[i..i + 1] != b[i..i + 1] {
+            if a[i..=i] != b[i..=i] {
                 diff.push(i);
                 if diff.len() > 2 {
                     return false;
@@ -54,13 +54,13 @@ impl Solution {
             }
         }
 
-        if diff.len() == 0 {
+        if diff.is_empty() {
             return a_set.len() != a.len();
         }
 
         diff.len() == 2
-            && a[diff[0]..diff[0] + 1] == b[diff[1]..diff[1] + 1]
-            && a[diff[1]..diff[1] + 1] == b[diff[0]..diff[0] + 1]
+            && a[diff[0]..=diff[0]] == b[diff[1]..=diff[1]]
+            && a[diff[1]..=diff[1]] == b[diff[0]..=diff[0]]
     }
 }
 

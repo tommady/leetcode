@@ -1,0 +1,32 @@
+#! /bin/bash 
+
+# title_slug=$(bb "$1" -s -l -t -)
+# request_json=$( jq -n \
+#   --arg ts "$title_slug" \
+#   '{"operationName": "getQuestionDetail","variables": {"titleSlug": $ts},"query": "query getQuestionDetail($titleSlug: String!) {question(titleSlug: $titleSlug) {questionFrontendId\ncontent\ncodeDefinition\nsampleTestCase}}"}')
+# 
+# echo $request_json | http POST https://leetcode.com/graphql
+
+title_slug="two-even"
+foo='
+{
+    "data": {
+        "question": {
+            "codeDefinition": "[{\"value\": \"cpp\", \"text\": \"C++\", \"defaultCode\": \"class Solution {\\npublic:\\n    bool buddyStrings(string A, string B) {\\n        \\n    }\\n};\"}, {\"value\": \"java\", \"text\": \"Java\", \"defaultCode\": \"class Solution {\\n    public boolean buddyStrings(String A, String B) {\\n        \\n    }\\n}\"}, {\"value\": \"python\", \"text\": \"Python\", \"defaultCode\": \"class Solution(object):\\n    def buddyStrings(self, A, B):\\n        \\\"\\\"\\\"\\n        :type A: str\\n        :type B: str\\n        :rtype: bool\\n        \\\"\\\"\\\"\\n        \"}, {\"value\": \"python3\", \"text\": \"Python3\", \"defaultCode\": \"class Solution:\\n    def buddyStrings(self, A: str, B: str) -> bool:\\n        \"}, {\"value\": \"c\", \"text\": \"C\", \"defaultCode\": \"\\n\\nbool buddyStrings(char * A, char * B){\\n\\n}\\n\\n\"}, {\"value\": \"csharp\", \"text\": \"C#\", \"defaultCode\": \"public class Solution {\\n    public bool BuddyStrings(string A, string B) {\\n        \\n    }\\n}\"}, {\"value\": \"javascript\", \"text\": \"JavaScript\", \"defaultCode\": \"/**\\n * @param {string} A\\n * @param {string} B\\n * @return {boolean}\\n */\\nvar buddyStrings = function(A, B) {\\n    \\n};\"}, {\"value\": \"ruby\", \"text\": \"Ruby\", \"defaultCode\": \"# @param {String} a\\n# @param {String} b\\n# @return {Boolean}\\ndef buddy_strings(a, b)\\n    \\nend\"}, {\"value\": \"swift\", \"text\": \"Swift\", \"defaultCode\": \"class Solution {\\n    func buddyStrings(_ A: String, _ B: String) -> Bool {\\n        \\n    }\\n}\"}, {\"value\": \"golang\", \"text\": \"Go\", \"defaultCode\": \"func buddyStrings(A string, B string) bool {\\n    \\n}\"}, {\"value\": \"scala\", \"text\": \"Scala\", \"defaultCode\": \"object Solution {\\n    def buddyStrings(A: String, B: String): Boolean = {\\n        \\n    }\\n}\"}, {\"value\": \"kotlin\", \"text\": \"Kotlin\", \"defaultCode\": \"class Solution {\\n    fun buddyStrings(A: String, B: String): Boolean {\\n        \\n    }\\n}\"}, {\"value\": \"rust\", \"text\": \"Rust\", \"defaultCode\": \"impl Solution {\\n    pub fn buddy_strings(a: String, b: String) -> bool {\\n        \\n    }\\n}\"}, {\"value\": \"php\", \"text\": \"PHP\", \"defaultCode\": \"class Solution {\\n\\n    /**\\n     * @param String $A\\n     * @param String $B\\n     * @return Boolean\\n     */\\n    function buddyStrings($A, $B) {\\n        \\n    }\\n}\"}]",
+            "content": "<p>given two strings <code>a</code> and <code>b</code>&nbsp;of lowercase letters, return <code>true</code> if and only if we&nbsp;can swap two letters in <code>a</code> so that the result equals <code>b</code>.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>example 1:</strong></p>\r\n\r\n<div>\r\n<pre>\r\n<strong>input: </strong>a = <span id=\"example-input-1-1\">&quot;ab&quot;</span>, b = <span id=\"example-input-1-2\">&quot;ba&quot;</span>\r\n<strong>output: </strong><span id=\"example-output-1\">true</span>\r\n</pre>\r\n\r\n<div>\r\n<p><strong>example 2:</strong></p>\r\n\r\n<pre>\r\n<strong>input: </strong>a = <span id=\"example-input-2-1\">&quot;ab&quot;</span>, b = <span id=\"example-input-2-2\">&quot;ab&quot;</span>\r\n<strong>output: </strong><span id=\"example-output-2\">false</span>\r\n</pre>\r\n\r\n<div>\r\n<p><strong>example 3:</strong></p>\r\n\r\n<pre>\r\n<strong>input: </strong>a = <span id=\"example-input-3-1\">&quot;aa&quot;</span>, b = <span id=\"example-input-3-2\">&quot;aa&quot;</span>\r\n<strong>output: </strong><span id=\"example-output-3\">true</span>\r\n</pre>\r\n\r\n<div>\r\n<p><strong>example 4:</strong></p>\r\n\r\n<pre>\r\n<strong>input: </strong>a = <span id=\"example-input-4-1\">&quot;aaaaaaabc&quot;</span>, b = <span id=\"example-input-4-2\">&quot;aaaaaaacb&quot;</span>\r\n<strong>output: </strong><span id=\"example-output-4\">true</span>\r\n</pre>\r\n\r\n<div>\r\n<p><strong>example 5:</strong></p>\r\n\r\n<pre>\r\n<strong>input: </strong>a = <span id=\"example-input-5-1\">&quot;&quot;</span>, b = <span id=\"example-input-5-2\">&quot;aa&quot;</span>\r\n<strong>output: </strong><span id=\"example-output-5\">false</span>\r\n</pre>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong><span>note:</span></strong></p>\r\n\r\n<ol>\r\n\t<li><code>0 &lt;= a.length &lt;= 20000</code></li>\r\n\t<li><code>0 &lt;= b.length &lt;= 20000</code></li>\r\n\t<li><code>a</code> and&nbsp;<code>b</code> consist only of lowercase letters.</li>\r\n</ol>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+            "questionFrontendId": "859",
+            "sampleTestCase": "\"ab\"\n\"ba\""
+        }
+    }
+}'
+
+code_definition=$( echo $foo | jq -r '.data.question.codeDefinition' )
+question_frontend_id=$( echo $foo | jq -r '.data.question.questionFrontendId' )
+content=$( echo $( echo $( echo $foo | jq -r -c '.data.question.content' ) | sd '<[^>]*>' '' ) | sd '&[\w]+;*' ' ' )
+sample_test_case=$( echo $foo | jq -r '.data.question.sampleTestCase' ) 
+
+title_slug=$(bb "$title_slug" -f - -t _)
+# file="rust/src/p${question_frontend_id}_${title_slug}"
+# cp rust/template.rs file
+# f=$( cat ./rust/template.rs )
+# echo $( sd 'given' $content $f )

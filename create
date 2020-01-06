@@ -25,8 +25,28 @@ question_frontend_id=$( echo $foo | jq -r '.data.question.questionFrontendId' )
 content=$( echo $( echo $( echo $foo | jq -r -c '.data.question.content' ) | sd '<[^>]*>' '' ) | sd '&[\w]+;*' ' ' )
 sample_test_case=$( echo $foo | jq -r '.data.question.sampleTestCase' ) 
 
+for row in $( echo "${code_definition}" | jq -c -r '.[] | @base64' ); do
+  _jq() {
+    echo $row | base64 --decode | jq -r ${1}
+  }
+  
+  a=$(_jq '.value')
+  if [ $a == "rust" ]; then
+    code_definition=$(_jq '.defaultCode')
+    break
+  fi
+done
+
+if [ -z "$code_definition" ]; then
+  echo "this problem not support language: rust"
+  exit 1
+fi
+
 title_slug=$(bb "$title_slug" -f - -t _)
-# file="rust/src/p${question_frontend_id}_${title_slug}"
-# cp rust/template.rs file
-# f=$( cat ./rust/template.rs )
-# echo $( sd 'given' $content $f )
+file="./rust/src/p${question_frontend_id}_${title_slug}.rs"
+cp rust/template.rs $file
+
+sd "__PROBLEM_DESC__" "${content}" $file
+sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file
+sd "__PROBLEM_SAMPLE_TEST_CASE__" "$sample_test_case" $file
+sd "__PROBLEM_ID_" "$question_frontend_id" $file

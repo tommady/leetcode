@@ -8,7 +8,7 @@ response_json=$( echo $request_json | http POST https://leetcode.com/graphql )
 
 code_definition=$( echo $response_json | jq -r '.data.question.codeDefinition' )
 question_frontend_id=$( echo $response_json | jq -r '.data.question.questionFrontendId' )
-content=$( echo $( echo $( echo $response_json | jq -r -c '.data.question.content' ) | sd '<[^>]*>' '' ) | sd '&[\w]+;*' ' ' )
+content=$( echo $( echo $( echo $response_json | jq -r -c '.data.question.content' ) | sd '<[^>]*>' '' ) | sd '&[\w]+;*' ' ' | sd '\r\n' '\n' | sd '\n' '\n//' )
 sample_test_case=$( echo $response_json | jq -r '.data.question.sampleTestCase' ) 
 
 for row in $( echo "${code_definition}" | jq -c -r '.[] | @base64' ); do
@@ -30,7 +30,7 @@ fi
 
 title_slug=$(bb "$title_slug" -f - -t _)
 file="./src/p${question_frontend_id}_${title_slug}.rs"
-cp template.rs $file
+cp ./template.rs $file
 
 sd "__PROBLEM_DESC__" "${content}" $file
 sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file

@@ -2,7 +2,7 @@
 title_slug=$(bb "$1" -s -l -t -)
 request_json=$( jq -n \
   --arg ts "$title_slug" \
-  '{"operationName": "getQuestionDetail","variables": {"titleSlug": $ts},"query": "query getQuestionDetail($titleSlug: String!) {question(titleSlug: $titleSlug) {questionFrontendId\ncontent\ncodeDefinition\nsampleTestCase}}"}')
+  '{"operationName": "getQuestionDetail","variables": {"titleSlug": $ts},"query": "query getQuestionDetail($titleSlug: String!) {question(titleSlug: $titleSlug) {questionFrontendId\ncontent\ncodeDefinition}}"}')
 
 response_json=$( echo $request_json | http POST https://leetcode.com/graphql )
 response_json=$( echo $response_json | sd '<[^>]*>' '' )
@@ -11,13 +11,7 @@ response_json=$( echo $response_json | sd '\\r\\n' '\\\\n// ' )
 
 code_definition=$( echo $response_json | jq -r '.data.question.codeDefinition' )
 question_frontend_id=$( echo $response_json | jq -r '.data.question.questionFrontendId' )
-
 content=$( echo $response_json | jq -r '.data.question.content' )
-# content=$( echo $content | sd '<[^>]*>' '' )
-# content=$( echo $content | sd '&[\w]+;*' ' ' )
-# content=$( echo $content | sed 's/\\r\\n/\/\/ fuck/g' )
-
-sample_test_case=$( echo $response_json | jq -r '.data.question.sampleTestCase' ) 
 
 for row in $( echo "${code_definition}" | jq -c -r '.[] | @base64' ); do
   _jq() {
@@ -42,5 +36,6 @@ cp ./template.rs $file
 
 sd "__PROBLEM_DESC__" "$content" $file
 sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file
-sd "__PROBLEM_SAMPLE_TEST_CASE__" "$sample_test_case" $file
 sd "__PROBLEM_ID__" "$question_frontend_id" $file
+
+rustfmt $file

@@ -39,3 +39,5 @@ sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file
 sd "__PROBLEM_ID__" "$question_frontend_id" $file
 
 rustfmt $file
+
+echo "p${question_frontend_id}_${title_slug}.rs" > ./src/lib.rs

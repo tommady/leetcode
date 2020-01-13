@@ -6,7 +6,7 @@ request_json=$( jq -n \
 
 response_json=$( echo $request_json | http POST https://leetcode.com/graphql )
 response_json=$( echo $response_json | sd '<[^>]*>' '' )
-response_json=$( echo $response_json | sd '&[\w]+;*' ' ' )
+response_json=$( echo $response_json | sd '&[\w]+;' ' ' )
 response_json=$( echo $response_json | sd '\\r\\n' '\\\\n// ' )
 
 code_definition=$( echo $response_json | jq -r '.data.question.codeDefinition' )
@@ -40,4 +40,4 @@ sd "__PROBLEM_ID__" "$question_frontend_id" $file
 
 rustfmt $file
 
-echo "mod p${question_frontend_id}_${title_slug}" >> ./src/lib.rs
+echo "mod p${question_frontend_id}_${title_slug};" >> ./src/lib.rs

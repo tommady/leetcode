@@ -3,3 +3,4 @@ mod p859_buddy_strings;
 mod p929_unique_email_addresses;
 mod p933_number_of_recent_calls;
 mod p1295_find_numbers_with_even_number_of_digits;
+mod p1275_find_winner_on_a_tic_tac_toe_game;

@@ -41,3 +41,4 @@ sd "__PROBLEM_ID__" "$question_frontend_id" $file
 rustfmt $file
 
 echo "mod p${question_frontend_id}_${title_slug};" >> ./src/lib.rs
+rustfmt ./src/lib.rs

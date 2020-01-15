@@ -85,25 +85,33 @@ impl Solution {
             let y = moves[i][1] as usize;
             let index = x * 3 + y;
             if i % 2 == 0 {
-                board[index] = "X";
+                board[index] = "A";
             } else {
-                board[index] = "O";
+                board[index] = "B";
             }
-        }
 
-        let mut is_pending = true;
-        for i usize in 0..3 {
-            for mark in vec!["A", "B"] {
-                if board[i][0] == mark && board[i][1] == mark && board[i][2] == mark {
-                    return "A".to_owned();
+            for mark in &["A".to_owned(), "B".to_owned()] {
+                if (board[0] == mark && board[1] == mark && board[2] == mark)
+                    || (board[3] == mark && board[4] == mark && board[5] == mark)
+                    || (board[6] == mark && board[7] == mark && board[8] == mark)
+                    || (board[0] == mark && board[4] == mark && board[8] == mark)
+                    || (board[2] == mark && board[4] == mark && board[6] == mark)
+                    || (board[0] == mark && board[3] == mark && board[6] == mark)
+                    || (board[1] == mark && board[4] == mark && board[7] == mark)
+                    || (board[2] == mark && board[5] == mark && board[8] == mark)
+                {
+                    return mark.to_owned();
                 }
             }
         }
 
-        match is_pending {
-            true => "Pending".to_owned(),
-            false => "Draw".to_owned(),
+        for b in board.iter() {
+            if *b == "" {
+                return "Pending".to_owned();
+            }
         }
+
+        "Draw".to_owned()
     }
 }
 
@@ -113,6 +121,9 @@ mod tests {
 
     #[test]
     fn test_1275_solution() {
+        // "X  "    "X  "    "X  "    "X  "    "X  "
+        // "   " -> "   " -> " X " -> " X " -> " X "
+        // "   "    "O  "    "O  "    "OO "    "OOX"
         assert_eq!(
             "A",
             Solution::tictactoe(vec![
@@ -123,6 +134,9 @@ mod tests {
                 vec![2, 2]
             ])
         );
+        // "X  "    "X  "    "XX "    "XXO"    "XXO"    "XXO"
+        // "   " -> " O " -> " O " -> " O " -> "XO " -> "XO "
+        // "   "    "   "    "   "    "   "    "   "    "O  "
         assert_eq!(
             "B",
             Solution::tictactoe(vec![
@@ -134,6 +148,9 @@ mod tests {
                 vec![2, 0]
             ])
         );
+        // "XXO"
+        // "OOX"
+        // "XOX"
         assert_eq!(
             "Draw",
             Solution::tictactoe(vec![
@@ -148,6 +165,25 @@ mod tests {
                 vec![2, 2]
             ])
         );
+        // "X  "
+        // " O "
+        // "   "
         assert_eq!("Pending", Solution::tictactoe(vec![vec![0, 0], vec![1, 1]]));
+        // "XOX"
+        // "XOX"
+        // "XO "
+        assert_eq!(
+            "B",
+            Solution::tictactoe(vec![
+                vec![2, 0],
+                vec![1, 1],
+                vec![0, 2],
+                vec![2, 1],
+                vec![1, 2],
+                vec![1, 0],
+                vec![0, 0],
+                vec![0, 1]
+            ])
+        );
     }
 }

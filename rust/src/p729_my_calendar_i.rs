@@ -25,11 +25,10 @@
 
 #![allow(dead_code)]
 
-use std::collections::BTreeSet;
-use std::ops::Bound::Included;
+use std::collections::BTreeMap;
 
 struct MyCalendar {
-    set: BTreeSet<i32>,
+    set: BTreeMap<i32, i32>,
 }
 
 /**
@@ -39,18 +38,24 @@ struct MyCalendar {
 impl MyCalendar {
     fn new() -> Self {
         MyCalendar {
-            set: BTreeSet::new(),
+            set: BTreeMap::new(),
         }
     }
 
     fn book(&mut self, start: i32, end: i32) -> bool {
-        if self.set.range((Included(&start), Included(&end))).count() >= 2 {
-            return false;
+        if let Some(x) = self.set.range(..start).next_back() {
+            if *x.1 > start {
+                return false;
+            }
         }
 
-        for n in start..=end {
-            self.set.insert(n);
+        if let Some(y) = self.set.range(start..).next() {
+            if *y.0 < end {
+                return false;
+            }
         }
+
+        self.set.insert(start, end);
         true
     }
 }
@@ -66,14 +71,14 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_933_solution1() {
+    fn test_729_solution1() {
         let mut mc = MyCalendar::new();
         assert_eq!(true, mc.book(10, 20));
         assert_eq!(false, mc.book(15, 25));
         assert_eq!(true, mc.book(20, 30));
     }
     #[test]
-    fn test_933_solution2() {
+    fn test_729_solution2() {
         let mut mc = MyCalendar::new();
         assert_eq!(true, mc.book(20, 29));
         assert_eq!(false, mc.book(13, 22));
@@ -85,5 +90,19 @@ mod tests {
         assert_eq!(true, mc.book(36, 42));
         assert_eq!(false, mc.book(45, 50));
         assert_eq!(false, mc.book(47, 50));
+    }
+    #[test]
+    fn test_729_solution3() {
+        let mut mc = MyCalendar::new();
+        assert_eq!(true, mc.book(45, 50));
+        assert_eq!(true, mc.book(33, 41));
+        assert_eq!(false, mc.book(39, 45));
+        assert_eq!(false, mc.book(33, 42));
+        assert_eq!(true, mc.book(25, 32));
+        assert_eq!(false, mc.book(26, 35));
+        assert_eq!(true, mc.book(19, 25));
+        assert_eq!(true, mc.book(3, 8));
+        assert_eq!(true, mc.book(8, 13));
+        assert_eq!(false, mc.book(18, 27));
     }
 }

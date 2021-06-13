@@ -56,6 +56,10 @@ question_frontend_id=$(echo $response_json | jq -r '.data.question.questionFront
 content=$(echo $response_json | jq -r '.data.question.content')
 example_testcases=$(echo $response_json | jq -r '.data.question.exampleTestcases')
 
+content=$(echo "$content" | sd '\n' '\n// ')
+example_testcases=$(echo "$example_testcases" | sd '\n' '\n// ')
+
+# finding out the rust default code
 for row in $( echo "${code_definition}" | jq -c -r '.[] | @base64' ); do
   _jq() {
     echo $row | base64 --decode | jq -r ${1}

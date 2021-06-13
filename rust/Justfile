@@ -1,0 +1,6 @@
+@create problem_name:
+	bash ./new {{problem_name}}
+
+@test problem_num:
+	cargo test --lib test_{{problem_num}}_solution
+

@@ -1,4 +1,5 @@
 mod p1275_find_winner_on_a_tic_tac_toe_game;
+mod p1288_remove_covered_intervals;
 mod p1295_find_numbers_with_even_number_of_digits;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;

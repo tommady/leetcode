@@ -47,15 +47,14 @@ response_json=$(echo $request_json | curl -s -XPOST 'https://leetcode.com/graphq
   --data-binary @- \
   --compressed)
 
-response_json=$(echo $response_json | sd '<[^>]*>' '')
-response_json=$(echo $response_json | sd '&[\w]+;' ' ')
-response_json=$(echo $response_json | sd '\\r\\n' '\\\\n// ')
-
 code_definition=$(echo $response_json | jq -r '.data.question.codeDefinition')
 question_frontend_id=$(echo $response_json | jq -r '.data.question.questionFrontendId')
 content=$(echo $response_json | jq -r '.data.question.content')
 example_testcases=$(echo $response_json | jq -r '.data.question.exampleTestcases')
 
+content=$(echo $content | sd '<[^>]*>' '')
+content=$(echo $content | sd '&[\w]+;' ' ')
+content=$(echo $content | sd '\\r\\n' '\\\\n// ')
 content=$(echo "$content" | sd '\n' '\n// ')
 example_testcases=$(echo "$example_testcases" | sd '\n' '\n// ')
 

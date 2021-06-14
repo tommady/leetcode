@@ -3,6 +3,7 @@ mod p1288_remove_covered_intervals;
 mod p1295_find_numbers_with_even_number_of_digits;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;
+mod p1827_minimum_operations_to_make_the_array_increasing;
 mod p605_can_place_flowers;
 mod p729_my_calendar_i;
 mod p859_buddy_strings;

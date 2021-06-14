@@ -2,5 +2,5 @@
 	bash ./new {{problem_name}}
 
 @test problem_num:
-	cargo test --lib test_{{problem_num}}_solution
+	RUST_BACKTRACE=1 cargo test --lib test_{{problem_num}}_solution -- --nocapture
 

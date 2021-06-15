@@ -6,6 +6,7 @@ mod p1790_check_if_one_string_swap_can_make_strings_equal;
 mod p1827_minimum_operations_to_make_the_array_increasing;
 mod p605_can_place_flowers;
 mod p729_my_calendar_i;
+mod p731_my_calendar_ii;
 mod p859_buddy_strings;
 mod p929_unique_email_addresses;
 mod p933_number_of_recent_calls;

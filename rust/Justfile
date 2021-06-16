@@ -7,4 +7,5 @@
 @push problem_num:
 	git add --all
 	git commit -S -m "{{problem_num}} ac"
+	git push
 

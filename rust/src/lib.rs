@@ -1,3 +1,4 @@
+mod p1046_last_stone_weight;
 mod p1262_greatest_sum_divisible_by_three;
 mod p1275_find_winner_on_a_tic_tac_toe_game;
 mod p1288_remove_covered_intervals;

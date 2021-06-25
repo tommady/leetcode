@@ -11,6 +11,7 @@ mod p1752_check_if_array_is_sorted_and_rotated;
 mod p1768_merge_strings_alternately;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;
 mod p1827_minimum_operations_to_make_the_array_increasing;
+mod p1832_check_if_the_sentence_is_pangram;
 mod p1899_merge_triplets_to_form_target_triplet;
 mod p347_top_k_frequent_elements;
 mod p451_sort_characters_by_frequency;

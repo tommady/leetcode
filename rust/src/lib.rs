@@ -10,6 +10,7 @@ mod p1684_count_the_number_of_consistent_strings;
 mod p1752_check_if_array_is_sorted_and_rotated;
 mod p1768_merge_strings_alternately;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;
+mod p1796_second_largest_digit_in_a_string;
 mod p1827_minimum_operations_to_make_the_array_increasing;
 mod p1832_check_if_the_sentence_is_pangram;
 mod p1897_redistribute_characters_to_make_all_strings_equal;

@@ -6,6 +6,7 @@ mod p1275_find_winner_on_a_tic_tac_toe_game;
 mod p1288_remove_covered_intervals;
 mod p128_longest_consecutive_sequence;
 mod p1295_find_numbers_with_even_number_of_digits;
+mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
 mod p1636_sort_array_by_increasing_frequency;
 mod p1684_count_the_number_of_consistent_strings;

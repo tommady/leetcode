@@ -13,5 +13,6 @@ mod tests {
 
     #[test]
     fn test___PROBLEM_ID___solution() {
+        assert_eq!();
     }
 }

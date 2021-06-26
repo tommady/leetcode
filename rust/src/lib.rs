@@ -1,4 +1,5 @@
 mod p1002_find_common_characters;
+mod p1014_best_sightseeing_pair;
 mod p1046_last_stone_weight;
 mod p1262_greatest_sum_divisible_by_three;
 mod p1275_find_winner_on_a_tic_tac_toe_game;

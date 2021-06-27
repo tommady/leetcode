@@ -8,6 +8,7 @@ mod p128_longest_consecutive_sequence;
 mod p1295_find_numbers_with_even_number_of_digits;
 mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
+mod p1528_shuffle_string;
 mod p1636_sort_array_by_increasing_frequency;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1752_check_if_array_is_sorted_and_rotated;

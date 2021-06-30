@@ -11,10 +11,6 @@ problem_name=$(bb "$1" -s -l -t -)
 header=$(curl -sIL --max-redirs 1 https://leetcode.com/problems/$problem_name | rg -o -U --multiline-dotall -w '(HTTP/2 200)(.)*')
 
 csrf=$(echo $header | rg -o -w 'csrftoken=([^;]+);*?')
-cookie=$(echo $header | rg -o -w '__cf_bm=([^;]+);*?')
-
-# combine the csrf
-cookie="${csrf}; ${cookie}"
 # get rid of csrftoken= string
 csrf=${csrf:10}
 
@@ -42,7 +38,6 @@ response_json=$(echo $request_json | curl -s -XPOST 'https://leetcode.com/graphq
   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36' \
   -H 'content-type: application/json' \
   -H "x-csrftoken: ${csrf}" \
-  -H "cookie: ${cookie}" \
   -H "referer: https://leetcode.com/problems/${problem_name}/" \
   --data-binary @- \
   --compressed)

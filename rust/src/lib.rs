@@ -28,6 +28,7 @@ mod p349_intersection_of_two_arrays;
 mod p350_intersection_of_two_arrays_ii;
 mod p410_split_array_largest_sum;
 mod p451_sort_characters_by_frequency;
+mod p55_jump_game;
 mod p605_can_place_flowers;
 mod p692_top_k_frequent_words;
 mod p729_my_calendar_i;

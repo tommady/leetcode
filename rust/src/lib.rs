@@ -31,6 +31,7 @@ mod p605_can_place_flowers;
 mod p692_top_k_frequent_words;
 mod p729_my_calendar_i;
 mod p731_my_calendar_ii;
+mod p820_short_encoding_of_words;
 mod p838_push_dominoes;
 mod p859_buddy_strings;
 mod p929_unique_email_addresses;

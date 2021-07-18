@@ -11,9 +11,9 @@ pub struct Solution {}
 
 impl Solution {
     pub fn increasing_triplet(nums: Vec<i32>) -> bool {
-        let mut a = i32::MAX; 
+        let mut a = i32::MAX;
         let mut b = i32::MAX;
-        
+
         for num in nums {
             if a >= num {
                 a = num

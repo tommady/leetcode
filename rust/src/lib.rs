@@ -16,6 +16,7 @@ mod p1528_shuffle_string;
 mod p1556_thousand_separator;
 mod p1636_sort_array_by_increasing_frequency;
 mod p1684_count_the_number_of_consistent_strings;
+mod p1696_jump_game_vi;
 mod p1752_check_if_array_is_sorted_and_rotated;
 mod p1768_merge_strings_alternately;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;

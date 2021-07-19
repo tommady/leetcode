@@ -9,6 +9,7 @@ mod p1288_remove_covered_intervals;
 mod p128_longest_consecutive_sequence;
 mod p1295_find_numbers_with_even_number_of_digits;
 mod p1306_jump_game_iii;
+mod p1345_jump_game_iv;
 mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
 mod p1528_shuffle_string;

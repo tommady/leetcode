@@ -25,6 +25,7 @@ mod p1827_minimum_operations_to_make_the_array_increasing;
 mod p1832_check_if_the_sentence_is_pangram;
 mod p1897_redistribute_characters_to_make_all_strings_equal;
 mod p1899_merge_triplets_to_form_target_triplet;
+mod p1905_count_sub_islands;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;

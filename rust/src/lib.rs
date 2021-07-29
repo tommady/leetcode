@@ -14,6 +14,7 @@ mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
 mod p1528_shuffle_string;
 mod p1556_thousand_separator;
+mod p1631_path_with_minimum_effort;
 mod p1636_sort_array_by_increasing_frequency;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1696_jump_game_vi;

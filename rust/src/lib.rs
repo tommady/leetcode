@@ -10,6 +10,7 @@ mod p128_longest_consecutive_sequence;
 mod p1295_find_numbers_with_even_number_of_digits;
 mod p1306_jump_game_iii;
 mod p1345_jump_game_iv;
+mod p1466_reorder_routes_to_make_all_paths_lead_to_the_city_zero;
 mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
 mod p1528_shuffle_string;

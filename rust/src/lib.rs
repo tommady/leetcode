@@ -5,6 +5,7 @@ mod p1051_height_checker;
 mod p1160_find_words_that_can_be_formed_by_characters;
 mod p1200_minimum_absolute_difference;
 mod p1262_greatest_sum_divisible_by_three;
+mod p1267_count_servers_that_communicate;
 mod p1275_find_winner_on_a_tic_tac_toe_game;
 mod p1288_remove_covered_intervals;
 mod p128_longest_consecutive_sequence;

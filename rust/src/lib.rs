@@ -53,3 +53,4 @@ mod p859_buddy_strings;
 mod p929_unique_email_addresses;
 mod p933_number_of_recent_calls;
 mod p946_validate_stack_sequences;
+mod p962_maximum_width_ramp;

@@ -40,6 +40,7 @@ mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;
 mod p350_intersection_of_two_arrays_ii;
 mod p410_split_array_largest_sum;
+mod p41_first_missing_positive;
 mod p451_sort_characters_by_frequency;
 mod p45_jump_game_ii;
 mod p55_jump_game;

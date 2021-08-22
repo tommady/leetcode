@@ -46,6 +46,7 @@ mod p451_sort_characters_by_frequency;
 mod p45_jump_game_ii;
 mod p55_jump_game;
 mod p605_can_place_flowers;
+mod p628_maximum_product_of_three_numbers;
 mod p692_top_k_frequent_words;
 mod p729_my_calendar_i;
 mod p731_my_calendar_ii;

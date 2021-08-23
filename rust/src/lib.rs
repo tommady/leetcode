@@ -26,6 +26,7 @@ mod p1636_sort_array_by_increasing_frequency;
 mod p1640_check_array_formation_through_concatenation;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1696_jump_game_vi;
+mod p1716_calculate_money_in_leetcode_bank;
 mod p1752_check_if_array_is_sorted_and_rotated;
 mod p1768_merge_strings_alternately;
 mod p1790_check_if_one_string_swap_can_make_strings_equal;

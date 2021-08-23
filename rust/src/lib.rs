@@ -33,6 +33,7 @@ mod p1796_second_largest_digit_in_a_string;
 mod p1822_sign_of_the_product_of_an_array;
 mod p1827_minimum_operations_to_make_the_array_increasing;
 mod p1832_check_if_the_sentence_is_pangram;
+mod p1837_sum_of_digits_in_base_k;
 mod p1876_substrings_of_size_three_with_distinct_characters;
 mod p1897_redistribute_characters_to_make_all_strings_equal;
 mod p1899_merge_triplets_to_form_target_triplet;

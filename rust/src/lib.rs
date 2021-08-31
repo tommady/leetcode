@@ -47,6 +47,7 @@ mod p350_intersection_of_two_arrays_ii;
 mod p410_split_array_largest_sum;
 mod p41_first_missing_positive;
 mod p451_sort_characters_by_frequency;
+mod p453_minimum_moves_to_equal_array_elements;
 mod p45_jump_game_ii;
 mod p55_jump_game;
 mod p605_can_place_flowers;

@@ -18,6 +18,7 @@ mod p1466_reorder_routes_to_make_all_paths_lead_to_the_city_zero;
 mod p1470_shuffle_the_array;
 mod p1481_least_number_of_unique_integers_after_k_removals;
 mod p14_longest_common_prefix;
+mod p1509_minimum_difference_between_largest_and_smallest_value_in_three_moves;
 mod p1528_shuffle_string;
 mod p1556_thousand_separator;
 mod p1576_replace_all_s_to_avoid_consecutive_repeating_characters;

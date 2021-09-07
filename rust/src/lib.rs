@@ -56,6 +56,7 @@ mod p628_maximum_product_of_three_numbers;
 mod p692_top_k_frequent_words;
 mod p729_my_calendar_i;
 mod p731_my_calendar_ii;
+mod p781_rabbits_in_forest;
 mod p820_short_encoding_of_words;
 mod p838_push_dominoes;
 mod p859_buddy_strings;

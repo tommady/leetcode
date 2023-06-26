@@ -41,6 +41,7 @@ mod p1876_substrings_of_size_three_with_distinct_characters;
 mod p1897_redistribute_characters_to_make_all_strings_equal;
 mod p1899_merge_triplets_to_form_target_triplet;
 mod p1905_count_sub_islands;
+mod p2540_minimum_common_value;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;

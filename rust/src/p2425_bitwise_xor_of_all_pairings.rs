@@ -12,21 +12,16 @@ pub struct Solution {}
 
 impl Solution {
     pub fn xor_all_nums(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
-        let mut ret = 0;
-
-        if nums2.len() % 2 == 1 {
-            for n in &nums1 {
-                ret ^= n;
-            }
+        fn xor(nums: &[i32]) -> i32 {
+            nums.into_iter().fold(0, |acc, e| acc ^ e)
         }
 
-        if nums1.len() % 2 == 1 {
-            for n in &nums2 {
-                ret ^= n;
-            }
+        match (nums1.len() % 2, nums2.len() % 2) {
+            (0, 0) => 0,
+            (0, 1) => xor(&nums1),
+            (1, 0) => xor(&nums2),
+            _ => xor(&nums1) ^ xor(&nums2),
         }
-
-        ret
     }
 }
 

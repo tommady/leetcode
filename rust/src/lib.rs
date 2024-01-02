@@ -28,6 +28,7 @@ mod p1622_fancy_sequence;
 mod p1631_path_with_minimum_effort;
 mod p1636_sort_array_by_increasing_frequency;
 mod p1640_check_array_formation_through_concatenation;
+mod p1678_goal_parser_interpretation;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1696_jump_game_vi;
 mod p1716_calculate_money_in_leetcode_bank;

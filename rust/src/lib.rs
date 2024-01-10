@@ -51,6 +51,7 @@ mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;
 mod p350_intersection_of_two_arrays_ii;
+mod p357_count_numbers_with_unique_digits;
 mod p383_ransom_note;
 mod p410_split_array_largest_sum;
 mod p41_first_missing_positive;

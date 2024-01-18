@@ -46,6 +46,7 @@ mod p1897_redistribute_characters_to_make_all_strings_equal;
 mod p1899_merge_triplets_to_form_target_triplet;
 mod p1905_count_sub_islands;
 mod p2425_bitwise_xor_of_all_pairings;
+mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
 mod p2974_minimum_number_game;
 mod p334_increasing_triplet_subsequence;

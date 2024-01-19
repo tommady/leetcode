@@ -32,7 +32,7 @@ impl Solution {
             stack.push((i as i32, j as i32));
 
             let mut is_inside = true;
-            while stack.len() > 0 {
+            while !stack.is_empty() {
                 let (angle_i, angle_j) = stack.remove(0);
                 grid2[angle_i as usize][angle_j as usize] = -1;
 
@@ -48,11 +48,10 @@ impl Solution {
                         && angle0 as i32 >= 0
                         && angle1 < grid2[angle0].len()
                         && angle1 as i32 >= 0
+                        && grid2[angle0][angle1] == 1
                     {
-                        if grid2[angle0][angle1] == 1 {
-                            stack.push((angle0 as i32, angle1 as i32));
-                            grid2[angle0][angle1] = -1;
-                        }
+                        stack.push((angle0 as i32, angle1 as i32));
+                        grid2[angle0][angle1] = -1;
                     }
                 }
             }
@@ -66,13 +65,13 @@ impl Solution {
     }
 }
 
-fn pretty_print(g: &Vec<Vec<i32>>) {
+fn pretty_print(g: &[Vec<i32>]) {
     println!("THE GRID");
     for i in g.iter() {
         for j in i.iter() {
             print!("{}\t", j);
         }
-        print!("\n");
+        println!();
     }
 }
 

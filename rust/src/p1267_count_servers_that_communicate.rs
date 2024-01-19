@@ -18,17 +18,17 @@ impl Solution {
         let mut col = vec![0; m];
 
         for i in 0..n {
-            for j in 0..m {
+            for (j, c) in col.iter_mut().enumerate().take(m) {
                 if grid[i][j] == 1 {
                     row[i] += 1;
-                    col[j] += 1;
+                    *c += 1;
                 }
             }
         }
 
         for i in 0..n {
-            for j in 0..m {
-                if grid[i][j] == 1 && (row[i] > 1 || col[j] > 1) {
+            for (j, c) in col.iter_mut().enumerate().take(m) {
+                if grid[i][j] == 1 && (row[i] > 1 || *c > 1) {
                     ret += 1;
                 }
             }

@@ -20,23 +20,14 @@ impl Solution {
         let mut b = false;
         let mut c = false;
 
-        for i in 0..triplets.len() {
-            if triplets[i][0] == target[0]
-                && triplets[i][1] <= target[1]
-                && triplets[i][2] <= target[2]
-            {
+        for triplet in &triplets {
+            if triplet[0] == target[0] && triplet[1] <= target[1] && triplet[2] <= target[2] {
                 a = true;
             }
-            if triplets[i][1] == target[1]
-                && triplets[i][0] <= target[0]
-                && triplets[i][2] <= target[2]
-            {
+            if triplet[1] == target[1] && triplet[0] <= target[0] && triplet[2] <= target[2] {
                 b = true;
             }
-            if triplets[i][2] == target[2]
-                && triplets[i][1] <= target[1]
-                && triplets[i][0] <= target[0]
-            {
+            if triplet[2] == target[2] && triplet[1] <= target[1] && triplet[0] <= target[0] {
                 c = true;
             }
         }
@@ -51,27 +42,21 @@ mod tests {
 
     #[test]
     fn test_1899_solution() {
-        assert_eq!(
-            true,
-            Solution::merge_triplets(
-                vec![vec![2, 5, 3], vec![1, 8, 4], vec![1, 7, 5]],
-                vec![2, 7, 5],
-            )
-        );
-        assert_eq!(
-            true,
-            Solution::merge_triplets(vec![vec![1, 3, 4], vec![2, 5, 8]], vec![2, 5, 8])
-        );
-        assert_eq!(
-            true,
-            Solution::merge_triplets(
-                vec![vec![2, 5, 3], vec![2, 3, 4], vec![1, 2, 5], vec![5, 2, 3]],
-                vec![5, 5, 5],
-            )
-        );
-        assert_eq!(
-            false,
-            Solution::merge_triplets(vec![vec![3, 4, 5], vec![4, 5, 6]], vec![3, 2, 5])
-        );
+        assert!(Solution::merge_triplets(
+            vec![vec![2, 5, 3], vec![1, 8, 4], vec![1, 7, 5]],
+            vec![2, 7, 5],
+        ));
+        assert!(Solution::merge_triplets(
+            vec![vec![1, 3, 4], vec![2, 5, 8]],
+            vec![2, 5, 8]
+        ));
+        assert!(Solution::merge_triplets(
+            vec![vec![2, 5, 3], vec![2, 3, 4], vec![1, 2, 5], vec![5, 2, 3]],
+            vec![5, 5, 5],
+        ));
+        assert!(!Solution::merge_triplets(
+            vec![vec![3, 4, 5], vec![4, 5, 6]],
+            vec![3, 2, 5]
+        ));
     }
 }

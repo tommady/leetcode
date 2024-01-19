@@ -17,7 +17,7 @@ impl Solution {
         let mut i = start as usize;
         let mut stack = vec![i];
 
-        while stack.len() > 0 {
+        while !stack.is_empty() {
             i = stack.remove(0);
             if arr[i] == 0 {
                 return true;
@@ -47,8 +47,8 @@ mod tests {
 
     #[test]
     fn test_1306_solution() {
-        assert_eq!(true, Solution::can_reach(vec![4, 2, 3, 0, 3, 1, 2], 5));
-        assert_eq!(true, Solution::can_reach(vec![4, 2, 3, 0, 3, 1, 2], 0));
-        assert_eq!(false, Solution::can_reach(vec![3, 0, 2, 1, 2], 2));
+        assert!(Solution::can_reach(vec![4, 2, 3, 0, 3, 1, 2], 5));
+        assert!(Solution::can_reach(vec![4, 2, 3, 0, 3, 1, 2], 0));
+        assert!(!Solution::can_reach(vec![3, 0, 2, 1, 2], 2));
     }
 }

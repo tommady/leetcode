@@ -16,7 +16,7 @@ impl Solution {
 
         while n > 0 {
             ret += n % k;
-            n = n / k;
+            n /= k;
         }
 
         ret

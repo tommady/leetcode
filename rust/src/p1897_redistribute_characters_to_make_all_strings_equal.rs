@@ -34,41 +34,35 @@ mod tests {
 
     #[test]
     fn test_1897_solution() {
-        assert_eq!(
-            true,
-            Solution::make_equal(vec![
-                "abc".to_string(),
-                "aabc".to_string(),
-                "bc".to_string()
-            ])
-        );
-        assert_eq!(
-            false,
-            Solution::make_equal(vec!["ab".to_string(), "a".to_string()])
-        );
-        assert_eq!(
-            false,
-            Solution::make_equal(vec!["a".to_string(), "b".to_string()])
-        );
-        assert_eq!(
-            true,
-            Solution::make_equal(vec![
-                "caaaaa".to_string(),
-                "aaaaaaaaa".to_string(),
-                "a".to_string(),
-                "bbb".to_string(),
-                "bbbbbbbbb".to_string(),
-                "bbb".to_string(),
-                "cc".to_string(),
-                "cccccccccccc".to_string(),
-                "ccccccc".to_string(),
-                "ccccccc".to_string(),
-                "cc".to_string(),
-                "cccc".to_string(),
-                "c".to_string(),
-                "cccccccc".to_string(),
-                "c".to_string(),
-            ])
-        );
+        assert!(Solution::make_equal(vec![
+            "abc".to_string(),
+            "aabc".to_string(),
+            "bc".to_string()
+        ]));
+        assert!(!Solution::make_equal(vec![
+            "ab".to_string(),
+            "a".to_string()
+        ]));
+        assert!(!Solution::make_equal(vec![
+            "a".to_string(),
+            "b".to_string()
+        ]));
+        assert!(Solution::make_equal(vec![
+            "caaaaa".to_string(),
+            "aaaaaaaaa".to_string(),
+            "a".to_string(),
+            "bbb".to_string(),
+            "bbbbbbbbb".to_string(),
+            "bbb".to_string(),
+            "cc".to_string(),
+            "cccccccccccc".to_string(),
+            "ccccccc".to_string(),
+            "ccccccc".to_string(),
+            "cc".to_string(),
+            "cccc".to_string(),
+            "c".to_string(),
+            "cccccccc".to_string(),
+            "c".to_string(),
+        ]));
     }
 }

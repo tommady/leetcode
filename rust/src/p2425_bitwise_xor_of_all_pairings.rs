@@ -13,7 +13,7 @@ pub struct Solution {}
 impl Solution {
     pub fn xor_all_nums(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
         fn xor(nums: &[i32]) -> i32 {
-            nums.into_iter().fold(0, |acc, e| acc ^ e)
+            nums.iter().fold(0, |acc, e| acc ^ e)
         }
 
         match (nums1.len() % 2, nums2.len() % 2) {

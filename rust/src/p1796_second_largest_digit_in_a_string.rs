@@ -16,7 +16,7 @@ impl Solution {
         for b in s.as_bytes() {
             let mut n = *b as i32 - 57;
             if n <= 0 {
-                n = n + 9;
+                n += 9;
 
                 if n > first_high {
                     second_high = first_high;

@@ -80,9 +80,9 @@ impl Solution {
     pub fn tictactoe(moves: Vec<Vec<i32>>) -> String {
         let mut board: [&str; 9] = [""; 9];
 
-        for i in 0..moves.len() {
-            let x = moves[i][0] as usize;
-            let y = moves[i][1] as usize;
+        for (i, m) in moves.iter().enumerate() {
+            let x = m[0] as usize;
+            let y = m[1] as usize;
             let index = x * 3 + y;
             if i % 2 == 0 {
                 board[index] = "A";
@@ -106,7 +106,7 @@ impl Solution {
         }
 
         for b in board.iter() {
-            if *b == "" {
+            if b.is_empty() {
                 return "Pending".to_owned();
             }
         }

@@ -13,12 +13,10 @@ impl Solution {
         let mut ret = Vec::with_capacity(words.len());
         let mut cache: [[usize; 26]; 100] = [[0; 26]; 100];
 
-        let mut i = 0;
-        for word in words.iter() {
+        for (i, word) in words.iter().enumerate() {
             for b in word.as_bytes() {
                 cache[i][*b as usize - 97] += 1;
             }
-            i += 1;
         }
 
         fn min(a: usize, b: usize) -> usize {
@@ -33,14 +31,14 @@ impl Solution {
                 let mut is_ok = true;
                 let mut min_counter = cache[0][i];
 
-                for j in 1..words.len() {
-                    if cache[j][i] == 0 {
+                for c in cache.iter().take(words.len()).skip(1) {
+                    if c[i] == 0 {
                         is_ok = false;
                         min_counter = 0;
                         break;
                     }
 
-                    min_counter = min(min_counter, cache[j][i])
+                    min_counter = min(min_counter, c[i])
                 }
                 if is_ok {
                     for _ in 0..min_counter {

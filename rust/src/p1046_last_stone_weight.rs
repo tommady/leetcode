@@ -37,7 +37,7 @@ impl Solution {
             }
         }
 
-        if heap.len() == 0 {
+        if heap.is_empty() {
             return 0;
         }
 

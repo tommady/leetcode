@@ -15,13 +15,10 @@ pub struct Solution {}
 impl Solution {
     pub fn min_jumps(arr: Vec<i32>) -> i32 {
         let mut map: HashMap<i32, Vec<usize>> = HashMap::new();
-        let mut visited: Vec<bool> = Vec::with_capacity(arr.len());
-        for _ in 0..arr.len() {
-            visited.push(false);
-        }
+        let mut visited = vec![false; arr.len()];
 
-        for i in 1..arr.len() {
-            let m = map.entry(arr[i]).or_insert(vec![]);
+        for (i, a) in arr.iter().enumerate().skip(1) {
+            let m = map.entry(*a).or_insert(vec![]);
             m.push(i);
         }
 
@@ -30,7 +27,7 @@ impl Solution {
         visited[0] = true;
         let dest = arr.len() - 1;
 
-        while stack.len() > 0 {
+        while !stack.is_empty() {
             let mut cur_size = stack.len();
             while cur_size > 0 {
                 let i = stack.remove(0);
@@ -44,7 +41,7 @@ impl Solution {
                     stack.push(i + 1);
                     visited[i + 1] = true;
                 }
-                if (i as i32 - 1 >= 0) && !visited[i - 1] {
+                if (i as i32 > 0) && !visited[i - 1] {
                     stack.push(i - 1);
                     visited[i - 1] = true;
                 }

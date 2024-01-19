@@ -13,8 +13,7 @@ impl Solution {
     pub fn restore_array(adjacent_pairs: Vec<Vec<i32>>) -> Vec<i32> {
         use std::collections::HashMap;
 
-        let mut ret: Vec<i32> = Vec::with_capacity(adjacent_pairs.len() + 1);
-        ret.resize(adjacent_pairs.len() + 1, 0);
+        let mut ret: Vec<i32> = vec![0; adjacent_pairs.len() + 1];
         let mut map: HashMap<i32, Vec<i32>> = HashMap::with_capacity(adjacent_pairs.len() - 1);
 
         for pair in &adjacent_pairs {

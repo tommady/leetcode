@@ -56,26 +56,26 @@ mod tests {
 
     #[test]
     fn test_1640_solution() {
-        assert_eq!(true, Solution::can_form_array(vec![85], vec![vec![85]]));
-        assert_eq!(
-            true,
-            Solution::can_form_array(vec![15, 88], vec![vec![88], vec![15]])
-        );
-        assert_eq!(
-            false,
-            Solution::can_form_array(vec![49, 18, 16], vec![vec![16, 18, 49]])
-        );
-        assert_eq!(
-            true,
-            Solution::can_form_array(vec![91, 4, 64, 78], vec![vec![78], vec![4, 64], vec![91]])
-        );
-        assert_eq!(
-            false,
-            Solution::can_form_array(vec![1, 3, 5, 7], vec![vec![2, 4, 6, 8]])
-        );
-        assert_eq!(
-            false,
-            Solution::can_form_array(vec![1, 2, 3], vec![vec![1], vec![3, 2]])
-        );
+        assert!(Solution::can_form_array(vec![85], vec![vec![85]]));
+        assert!(Solution::can_form_array(
+            vec![15, 88],
+            vec![vec![88], vec![15]]
+        ));
+        assert!(!Solution::can_form_array(
+            vec![49, 18, 16],
+            vec![vec![16, 18, 49]]
+        ));
+        assert!(Solution::can_form_array(
+            vec![91, 4, 64, 78],
+            vec![vec![78], vec![4, 64], vec![91]]
+        ));
+        assert!(!Solution::can_form_array(
+            vec![1, 3, 5, 7],
+            vec![vec![2, 4, 6, 8]]
+        ));
+        assert!(!Solution::can_form_array(
+            vec![1, 2, 3],
+            vec![vec![1], vec![3, 2]]
+        ));
     }
 }

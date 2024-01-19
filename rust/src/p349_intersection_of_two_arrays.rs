@@ -46,12 +46,12 @@ mod tests {
         // you may return the result in any order
 
         assert_eq!(
-            vec![2].sort(),
-            Solution::intersection(vec![1, 2, 2, 1], vec![2, 2]).sort()
+            vec![2],
+            Solution::intersection(vec![1, 2, 2, 1], vec![2, 2])
         );
         assert_eq!(
-            vec![9, 4].sort(),
-            Solution::intersection(vec![4, 9, 5], vec![9, 4, 9, 8, 4]).sort()
+            vec![4, 9],
+            Solution::intersection(vec![4, 9, 5], vec![9, 4, 9, 8, 4])
         );
     }
 }

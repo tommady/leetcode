@@ -63,8 +63,8 @@ impl Solution1 {
         let mut ret = 0;
         let mut map: HashMap<i32, Vec<i32>> = HashMap::new();
 
-        for i in 0..n as usize {
-            map.entry(manager[i]).or_insert(Vec::new()).push(i as i32);
+        for (i, n) in manager.iter().enumerate().take(n as usize) {
+            map.entry(*n).or_insert(Vec::new()).push(i as i32);
         }
 
         let mut stack = vec![];
@@ -72,7 +72,7 @@ impl Solution1 {
             stack.push((*labor, inform_time[head_id as usize]));
         }
 
-        while stack.len() > 0 {
+        while !stack.is_empty() {
             let (you, i_inform) = stack.remove(0);
 
             if i_inform > ret {
@@ -80,9 +80,9 @@ impl Solution1 {
             }
 
             if let Some(labors) = map.get(&you) {
-                for i in 0..labors.len() {
-                    let labor = labors[i] as usize;
-                    stack.push((labors[i], inform_time[labor] + i_inform));
+                for labor in labors {
+                    let labor = *labor as usize;
+                    stack.push((labor as i32, inform_time[labor] + i_inform));
                 }
             }
         }

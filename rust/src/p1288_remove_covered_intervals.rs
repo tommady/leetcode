@@ -13,7 +13,7 @@ pub struct Solution {}
 
 impl Solution {
     pub fn remove_covered_intervals(intervals: Vec<Vec<i32>>) -> i32 {
-        fn inside(a: &Vec<i32>, b: &Vec<i32>) -> bool {
+        fn inside(a: &[i32], b: &[i32]) -> bool {
             if a[0] >= b[0] && a[1] <= b[1] {
                 return true;
             }
@@ -25,11 +25,9 @@ impl Solution {
         while i < intervals.len() {
             let mut j = 0;
             while j < intervals.len() {
-                if j != i {
-                    if inside(&intervals[i], &intervals[j]) {
-                        counter -= 1;
-                        break;
-                    }
+                if j != i && inside(&intervals[i], &intervals[j]) {
+                    counter -= 1;
+                    break;
                 }
                 j += 1;
             }

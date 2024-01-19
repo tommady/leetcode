@@ -24,7 +24,7 @@ impl Solution {
                     if found_l {
                         ret.push_str("al")
                     } else {
-                        ret.push_str("o")
+                        ret.push('o')
                     }
                     found_bracket_upper = false;
                     found_a = false;
@@ -40,7 +40,7 @@ impl Solution {
                         found_l = true;
                     }
                 }
-                'G' => ret.push_str("G"),
+                'G' => ret.push('G'),
                 _ => panic!("should not be here"),
             }
         }

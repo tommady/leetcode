@@ -35,11 +35,7 @@ impl Solution {
         let mut stack = BinaryHeap::with_capacity(heights.len() * heights[0].len());
         let angles: Vec<(i32, i32)> = vec![(1, 0), (-1, 0), (0, 1), (0, -1)];
         let mut ret = 0;
-
-        let mut visited = Vec::with_capacity(heights.len() * heights[0].len());
-        for _ in 0..heights.len() * heights[0].len() {
-            visited.push(false);
-        }
+        let mut visited = vec![false; heights.len() * heights[0].len()];
 
         stack.push(Step {
             diff: 0,
@@ -47,7 +43,7 @@ impl Solution {
             j: 0,
         });
 
-        while stack.len() > 0 {
+        while !stack.is_empty() {
             let next = stack.pop().unwrap();
             let visit = next.i * heights[0].len() + next.j;
 

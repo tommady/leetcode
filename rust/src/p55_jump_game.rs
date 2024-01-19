@@ -12,12 +12,12 @@ impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {
         let mut position = 0;
 
-        for i in 0..nums.len() {
+        for (i, num) in nums.iter().enumerate() {
             if i > position {
                 return false;
             }
 
-            let reached = i + nums[i] as usize;
+            let reached = i + *num as usize;
             if position < reached {
                 position = reached;
             }
@@ -33,7 +33,7 @@ mod tests {
 
     #[test]
     fn test_55_solution() {
-        assert_eq!(true, Solution::can_jump(vec![2, 3, 1, 1, 4]));
-        assert_eq!(false, Solution::can_jump(vec![3, 2, 1, 0, 4]));
+        assert!(Solution::can_jump(vec![2, 3, 1, 1, 4]));
+        assert!(!Solution::can_jump(vec![3, 2, 1, 0, 4]));
     }
 }

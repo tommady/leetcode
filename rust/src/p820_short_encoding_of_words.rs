@@ -10,7 +10,7 @@ pub struct Solution {}
 
 impl Solution {
     pub fn minimum_length_encoding(mut words: Vec<String>) -> i32 {
-        words.sort_by(|a, b| b.len().cmp(&a.len()));
+        words.sort_by_key(|b| std::cmp::Reverse(b.len()));
         let mut ret: i32 = 0;
 
         for word in words.iter() {

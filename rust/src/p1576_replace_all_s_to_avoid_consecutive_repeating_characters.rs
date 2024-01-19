@@ -15,7 +15,7 @@ impl Solution {
         let mut ret = s.clone().into_bytes();
 
         for i in 0..ret.len() {
-            let mut m = vec![true; 26];
+            let mut m = [true; 26];
             if ret[i] == b'?' {
                 let mut prev: u8 = 0;
                 let mut next: u8 = b'?';
@@ -33,8 +33,8 @@ impl Solution {
                     m[next as usize - 97] = false;
                 }
 
-                for j in 0..m.len() {
-                    if m[j] {
+                for (j, n) in m.iter().enumerate() {
+                    if *n {
                         ret[i] = j as u8 + 97;
                         break;
                     }

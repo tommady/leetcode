@@ -34,12 +34,9 @@ mod tests {
 
     #[test]
     fn test_334_solution() {
-        assert_eq!(true, Solution::increasing_triplet(vec![1, 2, 3, 4, 5]));
-        assert_eq!(false, Solution::increasing_triplet(vec![5, 4, 3, 2, 1]));
-        assert_eq!(true, Solution::increasing_triplet(vec![2, 1, 5, 0, 4, 6]));
-        assert_eq!(
-            true,
-            Solution::increasing_triplet(vec![20, 100, 10, 12, 5, 13])
-        );
+        assert!(Solution::increasing_triplet(vec![1, 2, 3, 4, 5]));
+        assert!(!Solution::increasing_triplet(vec![5, 4, 3, 2, 1]));
+        assert!(Solution::increasing_triplet(vec![2, 1, 5, 0, 4, 6]));
+        assert!(Solution::increasing_triplet(vec![20, 100, 10, 12, 5, 13]));
     }
 }

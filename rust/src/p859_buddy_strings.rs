@@ -70,44 +70,36 @@ mod tests {
 
     #[test]
     fn test_859_solution() {
-        assert_eq!(
-            true,
+        assert!(
             Solution::buddy_strings("ab".to_owned(), "ba".to_owned()),
             "'ab' and 'ba'",
         );
-        assert_eq!(
-            false,
-            Solution::buddy_strings("ab".to_owned(), "ab".to_owned()),
+        assert!(
+            !Solution::buddy_strings("ab".to_owned(), "ab".to_owned()),
             "'ab' and 'ab'",
         );
-        assert_eq!(
-            true,
+        assert!(
             Solution::buddy_strings("aa".to_owned(), "aa".to_owned()),
             "'aa' and 'aa'",
         );
-        assert_eq!(
-            true,
+        assert!(
             Solution::buddy_strings("aaaaaaabc".to_owned(), "aaaaaaacb".to_owned()),
             "'aaaaaaabc' and 'aaaaaaacb'",
         );
-        assert_eq!(
-            false,
-            Solution::buddy_strings("".to_owned(), "aa".to_owned()),
+        assert!(
+            !Solution::buddy_strings("".to_owned(), "aa".to_owned()),
             "'' and 'aa'",
         );
 
-        assert_eq!(
-            false,
-            Solution::buddy_strings("abcaa".to_owned(), "abcbb".to_owned()),
+        assert!(
+            !Solution::buddy_strings("abcaa".to_owned(), "abcbb".to_owned()),
             "'abcaa' and 'abcbb'",
         );
-        assert_eq!(
-            false,
-            Solution::buddy_strings("ab".to_owned(), "ca".to_owned()),
+        assert!(
+            !Solution::buddy_strings("ab".to_owned(), "ca".to_owned()),
             "'ab' and 'ca'",
         );
-        assert_eq!(
-            true,
+        assert!(
             Solution::buddy_strings("abab".to_owned(), "abab".to_owned()),
             "'abab' and 'abab'",
         );

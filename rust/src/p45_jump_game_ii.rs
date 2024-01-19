@@ -14,12 +14,12 @@ impl Solution {
         let mut y = 0;
         let mut ret = 0;
 
-        for i in 0..nums.len() - 1 {
+        for (i, num) in nums.iter().enumerate().take(nums.len() - 1) {
             if y < i {
                 break;
             }
 
-            y = y.max(i + nums[i] as usize);
+            y = y.max(i + *num as usize);
             if x == i {
                 x = y;
                 ret += 1;

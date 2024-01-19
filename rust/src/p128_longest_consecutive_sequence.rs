@@ -13,7 +13,7 @@ pub struct Solution {}
 
 impl Solution {
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
-        if nums.len() == 0 {
+        if nums.is_empty() {
             return 0;
         }
 
@@ -33,22 +33,15 @@ impl Solution {
         let mut max_counter: i32 = 1;
         let mut counter: i32 = 1;
         let mut min: i32 = 1;
-        loop {
-            match heap.pop() {
-                Some(Reverse(n)) => {
-                    if min + 1 == *n {
-                        counter += 1;
-                    } else if min != *n {
-                        counter = 1;
-                    }
-                    min = *n;
-                }
-                None => break,
+        while let Some(Reverse(n)) = heap.pop() {
+            if min + 1 == *n {
+                counter += 1;
+            } else if min != *n {
+                counter = 1;
             }
+            min = *n;
             max_counter = max(max_counter, counter);
         }
-        // for the None break missing detection
-        max_counter = max(max_counter, counter);
 
         max_counter
     }

@@ -31,7 +31,7 @@ impl Solution {
             adjustment[to].push((from, 0));
         }
 
-        while stack.len() > 0 {
+        while !stack.is_empty() {
             let next = stack.remove(0);
             visited[next] = true;
 

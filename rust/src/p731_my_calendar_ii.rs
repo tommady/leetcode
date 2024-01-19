@@ -75,11 +75,11 @@ mod tests {
     #[test]
     fn test_731_solution() {
         let mut obj = MyCalendarTwo::new();
-        assert_eq!(true, obj.book(10, 20));
-        assert_eq!(true, obj.book(50, 60));
-        assert_eq!(true, obj.book(10, 40));
-        assert_eq!(false, obj.book(5, 15));
-        assert_eq!(true, obj.book(5, 10));
-        assert_eq!(true, obj.book(25, 55));
+        assert!(obj.book(10, 20));
+        assert!(obj.book(50, 60));
+        assert!(obj.book(10, 40));
+        assert!(!obj.book(5, 15));
+        assert!(obj.book(5, 10));
+        assert!(obj.book(25, 55));
     }
 }

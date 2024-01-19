@@ -73,36 +73,36 @@ mod tests {
     #[test]
     fn test_729_solution1() {
         let mut mc = MyCalendar::new();
-        assert_eq!(true, mc.book(10, 20));
-        assert_eq!(false, mc.book(15, 25));
-        assert_eq!(true, mc.book(20, 30));
+        assert!(mc.book(10, 20));
+        assert!(!mc.book(15, 25));
+        assert!(mc.book(20, 30));
     }
     #[test]
     fn test_729_solution2() {
         let mut mc = MyCalendar::new();
-        assert_eq!(true, mc.book(20, 29));
-        assert_eq!(false, mc.book(13, 22));
-        assert_eq!(true, mc.book(44, 50));
-        assert_eq!(true, mc.book(1, 7));
-        assert_eq!(false, mc.book(2, 10));
-        assert_eq!(true, mc.book(14, 20));
-        assert_eq!(false, mc.book(19, 25));
-        assert_eq!(true, mc.book(36, 42));
-        assert_eq!(false, mc.book(45, 50));
-        assert_eq!(false, mc.book(47, 50));
+        assert!(mc.book(20, 29));
+        assert!(!mc.book(13, 22));
+        assert!(mc.book(44, 50));
+        assert!(mc.book(1, 7));
+        assert!(!mc.book(2, 10));
+        assert!(mc.book(14, 20));
+        assert!(!mc.book(19, 25));
+        assert!(mc.book(36, 42));
+        assert!(!mc.book(45, 50));
+        assert!(!mc.book(47, 50));
     }
     #[test]
     fn test_729_solution3() {
         let mut mc = MyCalendar::new();
-        assert_eq!(true, mc.book(45, 50));
-        assert_eq!(true, mc.book(33, 41));
-        assert_eq!(false, mc.book(39, 45));
-        assert_eq!(false, mc.book(33, 42));
-        assert_eq!(true, mc.book(25, 32));
-        assert_eq!(false, mc.book(26, 35));
-        assert_eq!(true, mc.book(19, 25));
-        assert_eq!(true, mc.book(3, 8));
-        assert_eq!(true, mc.book(8, 13));
-        assert_eq!(false, mc.book(18, 27));
+        assert!(mc.book(45, 50));
+        assert!(mc.book(33, 41));
+        assert!(!mc.book(39, 45));
+        assert!(!mc.book(33, 42));
+        assert!(mc.book(25, 32));
+        assert!(!mc.book(26, 35));
+        assert!(mc.book(19, 25));
+        assert!(mc.book(3, 8));
+        assert!(mc.book(8, 13));
+        assert!(!mc.book(18, 27));
     }
 }

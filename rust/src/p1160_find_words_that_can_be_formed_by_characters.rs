@@ -13,14 +13,14 @@ pub struct Solution {}
 impl Solution {
     pub fn count_characters(words: Vec<String>, chars: String) -> i32 {
         let mut ret = 0;
-        let mut m = vec![0; 26];
+        let mut m = [0; 26];
 
         for b in chars.as_bytes() {
             m[*b as usize - 97] += 1;
         }
 
         for word in words {
-            let mut wm = vec![0; 26];
+            let mut wm = [0; 26];
             for w in word.as_bytes() {
                 wm[*w as usize - 97] += 1;
             }

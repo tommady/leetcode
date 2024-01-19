@@ -66,19 +66,16 @@ mod tests {
 
     #[test]
     fn test_605_solution() {
-        assert_eq!(
-            true,
+        assert!(
             Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 1),
             "vec = [1,0,0,0,1], n = 1"
         );
-        assert_eq!(
-            false,
-            Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 2),
+        assert!(
+            !Solution::can_place_flowers(vec![1, 0, 0, 0, 1], 2),
             "vec = [1,0,0,0,1], n = 2"
         );
-        assert_eq!(
-            false,
-            Solution::can_place_flowers(vec![1, 0, 0, 0, 0, 1], 2),
+        assert!(
+            !Solution::can_place_flowers(vec![1, 0, 0, 0, 0, 1], 2),
             "vec = [1,0,0,0,0,1], n = 2"
         );
     }

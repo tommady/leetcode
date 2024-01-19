@@ -14,11 +14,11 @@ pub struct Solution {}
 
 impl Solution {
     pub fn shuffle(nums: Vec<i32>, n: i32) -> Vec<i32> {
-        let mut x = 0 as usize;
+        let mut x = 0_usize;
         let mut y = n as usize;
         let mut ret = Vec::with_capacity(nums.len());
 
-        while x <= n as usize - 1 && y < nums.len() {
+        while x < n as usize && y < nums.len() {
             ret.push(nums[x]);
             ret.push(nums[y]);
 

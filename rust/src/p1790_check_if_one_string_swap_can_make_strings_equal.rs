@@ -96,29 +96,26 @@ mod tests {
 
     #[test]
     fn test_1790_solution() {
-        assert_eq!(
-            true,
-            Solution::are_almost_equal("bank".to_string(), "kanb".to_string())
-        );
-        assert_eq!(
-            false,
-            Solution::are_almost_equal("attack".to_string(), "defend".to_string())
-        );
-        assert_eq!(
-            true,
-            Solution::are_almost_equal("kelb".to_string(), "kelb".to_string())
-        );
+        assert!(Solution::are_almost_equal(
+            "bank".to_string(),
+            "kanb".to_string()
+        ));
+        assert!(!Solution::are_almost_equal(
+            "attack".to_string(),
+            "defend".to_string()
+        ));
+        assert!(Solution::are_almost_equal(
+            "kelb".to_string(),
+            "kelb".to_string()
+        ));
 
-        assert_eq!(
-            false,
-            Solution::are_almost_equal("abcd".to_string(), "dcba".to_string())
-        );
-        assert_eq!(
-            true,
-            Solution::are_almost_equal(
-                "siyolsdcjthwsiplccjbuceoxmpjgrauocx".to_string(),
-                "siyolsdcjthwsiplccpbuceoxmjjgrauocx".to_string()
-            )
-        );
+        assert!(!Solution::are_almost_equal(
+            "abcd".to_string(),
+            "dcba".to_string()
+        ));
+        assert!(Solution::are_almost_equal(
+            "siyolsdcjthwsiplccjbuceoxmpjgrauocx".to_string(),
+            "siyolsdcjthwsiplccpbuceoxmjjgrauocx".to_string()
+        ));
     }
 }

@@ -37,7 +37,7 @@ impl Solution {
         let mut available_num = 9;
 
         while n > 1 && available_num > 0 {
-            udigits = udigits * available_num;
+            udigits *= available_num;
             ret += udigits;
             available_num -= 1;
             n -= 1;

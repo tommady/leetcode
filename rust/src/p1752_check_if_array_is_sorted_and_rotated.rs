@@ -34,10 +34,10 @@ mod tests {
 
     #[test]
     fn test_1752_solution() {
-        assert_eq!(true, Solution::check(vec![3, 4, 5, 1, 2]));
-        assert_eq!(false, Solution::check(vec![2, 1, 3, 4]));
-        assert_eq!(true, Solution::check(vec![1, 2, 3]));
-        assert_eq!(true, Solution::check(vec![1, 1, 1]));
-        assert_eq!(true, Solution::check(vec![2, 1]));
+        assert!(Solution::check(vec![3, 4, 5, 1, 2]));
+        assert!(!Solution::check(vec![2, 1, 3, 4]));
+        assert!(Solution::check(vec![1, 2, 3]));
+        assert!(Solution::check(vec![1, 1, 1]));
+        assert!(Solution::check(vec![2, 1]));
     }
 }

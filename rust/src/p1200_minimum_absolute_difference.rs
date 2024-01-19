@@ -11,6 +11,7 @@ pub struct Solution {}
 
 impl Solution {
     pub fn minimum_abs_difference(arr: Vec<i32>) -> Vec<Vec<i32>> {
+        use std::cmp::Ordering;
         let mut arr = arr;
         arr.sort_unstable();
 
@@ -20,12 +21,16 @@ impl Solution {
         for pair in arr.windows(2) {
             let diff = pair[1] - pair[0];
 
-            if diff < smallest {
-                smallest = pair[1] - pair[0];
-                ret.clear();
-                ret.push(vec![pair[0], pair[1]]);
-            } else if diff == smallest {
-                ret.push(vec![pair[0], pair[1]]);
+            match diff.cmp(&smallest) {
+                Ordering::Less => {
+                    smallest = pair[1] - pair[0];
+                    ret.clear();
+                    ret.push(vec![pair[0], pair[1]]);
+                }
+                Ordering::Equal => {
+                    ret.push(vec![pair[0], pair[1]]);
+                }
+                Ordering::Greater => {}
             }
         }
 

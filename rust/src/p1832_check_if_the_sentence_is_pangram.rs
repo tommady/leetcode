@@ -31,10 +31,9 @@ mod tests {
 
     #[test]
     fn test_1832_solution() {
-        assert_eq!(
-            true,
-            Solution::check_if_pangram("thequickbrownfoxjumpsoverthelazydog".to_string())
-        );
-        assert_eq!(false, Solution::check_if_pangram("leetcode".to_string()));
+        assert!(Solution::check_if_pangram(
+            "thequickbrownfoxjumpsoverthelazydog".to_string()
+        ));
+        assert!(!Solution::check_if_pangram("leetcode".to_string()));
     }
 }

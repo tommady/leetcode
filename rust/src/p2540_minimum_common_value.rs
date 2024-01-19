@@ -18,7 +18,7 @@ impl Solution {
         let mut ret = i32::MAX;
 
         for n in nums1 {
-            if let None = map.get(&n) {
+            if map.get(&n).is_none() {
                 map.insert(n, 1);
             }
         }

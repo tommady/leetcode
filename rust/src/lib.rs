@@ -49,6 +49,7 @@ mod p1905_count_sub_islands;
 mod p2425_bitwise_xor_of_all_pairings;
 mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
+mod p2843_count_symmetric_integers;
 mod p2974_minimum_number_game;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;

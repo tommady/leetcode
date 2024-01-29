@@ -3,7 +3,7 @@
 
 @test problem_num:
     cargo clippy --all-targets --all-features -- -D warnings
-	RUST_BACKTRACE=1 cargo test --lib test_{{problem_num}}_solution -- --nocapture
+    RUST_BACKTRACE=1 cargo test --lib test_{{problem_num}}_solution -- --nocapture
 
 @push problem_num:
 	git add ./ 

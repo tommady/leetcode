@@ -32,6 +32,7 @@ mod p1640_check_array_formation_through_concatenation;
 mod p1678_goal_parser_interpretation;
 mod p1684_count_the_number_of_consistent_strings;
 mod p1696_jump_game_vi;
+mod p1700_number_of_students_unable_to_eat_lunch;
 mod p1716_calculate_money_in_leetcode_bank;
 mod p1743_restore_the_array_from_adjacent_pairs;
 mod p1752_check_if_array_is_sorted_and_rotated;

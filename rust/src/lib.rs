@@ -47,6 +47,7 @@ mod p1876_substrings_of_size_three_with_distinct_characters;
 mod p1897_redistribute_characters_to_make_all_strings_equal;
 mod p1899_merge_triplets_to_form_target_triplet;
 mod p1905_count_sub_islands;
+mod p2073_time_needed_to_buy_tickets;
 mod p2357_make_array_zero_by_subtracting_equal_amounts;
 mod p2425_bitwise_xor_of_all_pairings;
 mod p2469_convert_the_temperature;

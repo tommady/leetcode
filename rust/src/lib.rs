@@ -57,6 +57,7 @@ mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
 mod p2960_count_tested_devices_after_test_operations;
 mod p2974_minimum_number_game;
+mod p3005_count_elements_with_maximum_frequency;
 mod p3010_divide_an_array_into_subarrays_with_minimum_cost_i;
 mod p3014_minimum_number_of_pushes_to_type_word_i;
 mod p3019_number_of_changing_keys;

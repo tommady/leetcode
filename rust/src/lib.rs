@@ -57,6 +57,7 @@ mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
 mod p2960_count_tested_devices_after_test_operations;
 mod p2974_minimum_number_game;
+mod p3014_minimum_number_of_pushes_to_type_word_i;
 mod p3019_number_of_changing_keys;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;

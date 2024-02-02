@@ -56,6 +56,7 @@ mod p2540_minimum_common_value;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
 mod p2960_count_tested_devices_after_test_operations;
+mod p2965_find_missing_and_repeated_values;
 mod p2974_minimum_number_game;
 mod p2980_check_if_bitwise_or_has_trailing_zeros;
 mod p3005_count_elements_with_maximum_frequency;

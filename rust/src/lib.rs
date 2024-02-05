@@ -56,6 +56,7 @@ mod p2540_minimum_common_value;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
 mod p2942_find_words_containing_character;
+mod p2946_matrix_similarity_after_cyclic_shifts;
 mod p2951_find_the_peaks;
 mod p2956_find_common_elements_between_two_arrays;
 mod p2960_count_tested_devices_after_test_operations;

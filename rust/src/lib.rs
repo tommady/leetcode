@@ -55,6 +55,7 @@ mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
+mod p2932_maximum_strong_pair_xor_i;
 mod p2937_make_three_strings_equal;
 mod p2942_find_words_containing_character;
 mod p2946_matrix_similarity_after_cyclic_shifts;

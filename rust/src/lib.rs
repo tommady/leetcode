@@ -56,6 +56,7 @@ mod p2540_minimum_common_value;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2843_count_symmetric_integers;
 mod p2908_minimum_sum_of_mountain_triplets_i;
+mod p2909_minimum_sum_of_mountain_triplets_ii;
 mod p2923_find_champion_i;
 mod p2932_maximum_strong_pair_xor_i;
 mod p2937_make_three_strings_equal;

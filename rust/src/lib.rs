@@ -55,6 +55,7 @@ mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2798_number_of_employees_who_met_the_target;
+mod p2806_account_balance_after_rounded_purchase;
 mod p2810_faulty_keyboard;
 mod p2843_count_symmetric_integers;
 mod p2908_minimum_sum_of_mountain_triplets_i;

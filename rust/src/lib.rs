@@ -57,6 +57,7 @@ mod p2729_check_if_the_number_is_fascinating;
 mod p2798_number_of_employees_who_met_the_target;
 mod p2806_account_balance_after_rounded_purchase;
 mod p2810_faulty_keyboard;
+mod p2824_count_pairs_whose_sum_is_less_than_target;
 mod p2843_count_symmetric_integers;
 mod p2908_minimum_sum_of_mountain_triplets_i;
 mod p2909_minimum_sum_of_mountain_triplets_ii;

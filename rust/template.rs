@@ -1,6 +1,5 @@
 __PROBLEM_DESC__
 __PROBLEM_HINTS__
-__PROBLEM_EXAMPLE_TESTCASES__
 
 #![allow(dead_code)]
 pub struct Solution {}
@@ -13,6 +12,6 @@ mod tests {
 
     #[test]
     fn test___PROBLEM_ID___solution() {
-        assert_eq!();
+        __PROBLEN_UNIT_TESTS__
     }
 }

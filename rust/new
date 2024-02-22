@@ -26,7 +26,6 @@ request_json=$(jq -r -n \
         questionFrontendId 
         codeDefinition 
         content
-        exampleTestcases
         hints
       }
     }"
@@ -46,17 +45,14 @@ response_json=$(echo $request_json | curl -s -XPOST 'https://leetcode.com/graphq
 code_definition=$(echo $response_json | jq -r '.data.question.codeDefinition')
 question_frontend_id=$(echo $response_json | jq -r '.data.question.questionFrontendId')
 content=$(echo $response_json | jq -r '.data.question.content')
-example_testcases=$(echo $response_json | jq -r '.data.question.exampleTestcases')
 hints=$(echo $response_json | jq -r '.data.question.hints')
 
+content=$(echo $content | sd '&quot;' '"')
 content=$(echo $content | sd '&[\w]+;' ' ')
 content=$(echo $content | sd '&#39;' "'")
 content=$(echo $content | sd -F '</p>' '\n// ')
 content=$(echo $content | sd '<[^>]*>' '')
 formatted_content="// ${content}\n"
-
-example_testcases=$(echo $example_testcases | sd -F '\n' '\n// ')
-formatted_example_testcases="// ${example_testcases}"
 
 hints=$(echo $hints | sd '<[^>]*>' '')
 hints=$(echo $hints | sd '&[\w]+;' ' ')
@@ -87,15 +83,67 @@ if [ -z "$code_definition" ]; then
   exit 1
 fi
 
+# building the unit tests
+function_name=$(echo $code_definition | rg 'pub\sfn\s(.*)\(' -or '$1$2')
+examples=$(echo $formatted_content | rg 'Example\s\d:(.*)Constraints' -or '$1$2')
+readarray -d "Example" -t examples_array <<< "$examples"
+unit_tests=""
+for value in "${examples_array[@]}"; do
+    if result=$(echo $value | rg '(?:Input|Output)'); then
+        input=$(echo $value | rg 'Input:\s(.*)\\n\/\/\sOutput' -or '$1$2')
+        output=$(echo $value | rg 'Output:\s(.*)\\n\/\/' -or '$1$2')
+        input=$(echo $input | sd '\n' '')
+        output=$(echo $output | sd '\n' '')
+
+        # formatting the input
+        #
+        # removing the arg = pattern
+        input=$(echo $input | sd '(\w*\s=\s)' '')
+        # from [] into vec![]
+        # change ', ' into '__CONNECTION__' for the splitting next
+        input=$(echo $input | sd ',\s' '__CONNECTION__')
+        connection_count=$(echo $input | rg --count-matches '__CONNECTION__')
+        tmp_input=""
+        readarray -d "__CONNECTION__" -t input_array <<< "$input"
+        for vector in "${input_array[@]}"; do 
+            if result=$(echo $vector | rg '\[.*\]'); then
+                tmp_input+="vec!${vector}"
+                if (( connection_count > 0 )); then
+                    tmp_input+=","
+                    connection_count=$((connection_count-1))
+                fi
+            fi 
+        done
+        input=$tmp_input
+        # from "" into "".to_string()
+        if result=$(echo $input | rg '".*"'); then
+            input=$(echo $input | sd '(?P<string>"[\w|\s]*")' '${string}.to_string()')
+        fi
+
+        # formatting the output
+        #
+        # from "" into "".to_string()
+        if result=$(echo $output | rg '".*"'); then
+            output=$(echo $output | sd '(?P<string>"[\w|\s]*")' '${string}.to_string()')
+        fi
+        # from [] into vec![]
+        if result=$(echo $output | rg '\[.*\]'); then
+            output=$(echo $output | sd '\[(.*)\]' 'vec![$1]')
+        fi
+
+        unit_tests+="assert_eq!(${output}, Solution::${function_name}(${input}));\n"
+    fi
+done
+
 problem_name=$(bb "$problem_name" -f - -t _)
 file="./src/p${question_frontend_id}_${problem_name}.rs"
 cp ./template.rs $file
 
 sd "__PROBLEM_DESC__" "$formatted_content" $file
 sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file
-sd "__PROBLEM_EXAMPLE_TESTCASES__" "$formatted_example_testcases" $file
 sd "__PROBLEM_ID__" "$question_frontend_id" $file
 sd "__PROBLEM_HINTS__" "$formatted_hints" $file
+sd "__PROBLEN_UNIT_TESTS__" "$unit_tests" $file
 
 rustfmt $file
 

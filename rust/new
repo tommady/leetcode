@@ -49,14 +49,13 @@ content=$(echo $response_json | jq -r '.data.question.content')
 example_testcases=$(echo $response_json | jq -r '.data.question.exampleTestcases')
 hints=$(echo $response_json | jq -r '.data.question.hints')
 
-content=$(echo $content | sd '<[^>]*>' '')
 content=$(echo $content | sd '&[\w]+;' ' ')
 content=$(echo $content | sd '&#39;' "'")
-content=$(echo $content | sd '\\r\\n' '\\\\n// ')
-content=$(echo $content | sd '\n' '\n// ')
-formatted_content="// ${content}"
+content=$(echo $content | sd -F '</p>' '\n// ')
+content=$(echo $content | sd '<[^>]*>' '')
+formatted_content="// ${content}\n"
 
-example_testcases=$(echo $example_testcases | sd '\n' '\n// ')
+example_testcases=$(echo $example_testcases | sd -F '\n' '\n// ')
 formatted_example_testcases="// ${example_testcases}"
 
 hints=$(echo $hints | sd '<[^>]*>' '')
@@ -66,7 +65,7 @@ ITER=1
 for row in $( echo "${hints}" | jq -c -r '.[] | @base64' ); do
     formatted_hints+="// hint ${ITER}\n// "
     formatted_hints+=$(echo $row | base64 --decode)
-    formatted_hints+="\n"
+    formatted_hints+="\n\n"
     ((ITER++))
 done
 

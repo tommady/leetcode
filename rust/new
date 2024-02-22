@@ -27,6 +27,7 @@ request_json=$(jq -r -n \
         codeDefinition 
         content
         exampleTestcases
+        hints
       }
     }"
 }')
@@ -46,12 +47,28 @@ code_definition=$(echo $response_json | jq -r '.data.question.codeDefinition')
 question_frontend_id=$(echo $response_json | jq -r '.data.question.questionFrontendId')
 content=$(echo $response_json | jq -r '.data.question.content')
 example_testcases=$(echo $response_json | jq -r '.data.question.exampleTestcases')
+hints=$(echo $response_json | jq -r '.data.question.hints')
 
 content=$(echo $content | sd '<[^>]*>' '')
 content=$(echo $content | sd '&[\w]+;' ' ')
+content=$(echo $content | sd '&#39;' "'")
 content=$(echo $content | sd '\\r\\n' '\\\\n// ')
-content=$(echo "$content" | sd '\n' '\n// ')
-example_testcases=$(echo "$example_testcases" | sd '\n' '\n// ')
+content=$(echo $content | sd '\n' '\n// ')
+formatted_content="// ${content}"
+
+example_testcases=$(echo $example_testcases | sd '\n' '\n// ')
+formatted_example_testcases="// ${example_testcases}"
+
+hints=$(echo $hints | sd '<[^>]*>' '')
+hints=$(echo $hints | sd '&[\w]+;' ' ')
+formatted_hints=""
+ITER=1
+for row in $( echo "${hints}" | jq -c -r '.[] | @base64' ); do
+    formatted_hints+="// hint ${ITER}\n// "
+    formatted_hints+=$(echo $row | base64 --decode)
+    formatted_hints+="\n"
+    ((ITER++))
+done
 
 # finding out the rust default code
 for row in $( echo "${code_definition}" | jq -c -r '.[] | @base64' ); do
@@ -75,10 +92,11 @@ problem_name=$(bb "$problem_name" -f - -t _)
 file="./src/p${question_frontend_id}_${problem_name}.rs"
 cp ./template.rs $file
 
-sd "__PROBLEM_DESC__" "$content" $file
+sd "__PROBLEM_DESC__" "$formatted_content" $file
 sd "__PROBLEM_DEFAULT_CODE__" "$code_definition" $file
-sd "__PROBLEM_EXAMPLE_TESTCASES__" "$example_testcases" $file
+sd "__PROBLEM_EXAMPLE_TESTCASES__" "$formatted_example_testcases" $file
 sd "__PROBLEM_ID__" "$question_frontend_id" $file
+sd "__PROBLEM_HINTS__" "$formatted_hints" $file
 
 rustfmt $file
 

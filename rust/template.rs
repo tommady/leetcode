@@ -1,6 +1,6 @@
-// __PROBLEM_DESC__
-//
-// __PROBLEM_EXAMPLE_TESTCASES__
+__PROBLEM_DESC__
+__PROBLEM_HINTS__
+__PROBLEM_EXAMPLE_TESTCASES__
 
 #![allow(dead_code)]
 pub struct Solution {}

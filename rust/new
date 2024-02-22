@@ -51,6 +51,7 @@ content=$(echo $content | sd '&quot;' '"')
 content=$(echo $content | sd '&[\w]+;' ' ')
 content=$(echo $content | sd '&#39;' "'")
 content=$(echo $content | sd -F '</p>' '\n// ')
+content=$(echo $content | sd -F '<strong>' '\n// ')
 content=$(echo $content | sd '<[^>]*>' '')
 formatted_content="// ${content}\n"
 
@@ -106,13 +107,18 @@ for value in "${examples_array[@]}"; do
         tmp_input=""
         readarray -d "__CONNECTION__" -t input_array <<< "$input"
         for vector in "${input_array[@]}"; do 
+            if [[ "$vector" == "CONNECTION" || "$vector" = "" ]] ; then
+                continue
+            fi
             if result=$(echo $vector | rg '\[.*\]'); then
                 tmp_input+="vec!${vector}"
-                if (( connection_count > 0 )); then
-                    tmp_input+=","
-                    connection_count=$((connection_count-1))
-                fi
+            else 
+                tmp_input+=$vector
             fi 
+            if (( connection_count > 0 )); then
+                tmp_input+=","
+                connection_count=$((connection_count-1))
+            fi
         done
         input=$tmp_input
         # from "" into "".to_string()

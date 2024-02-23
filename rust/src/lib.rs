@@ -61,6 +61,7 @@ mod p2824_count_pairs_whose_sum_is_less_than_target;
 mod p2828_check_if_a_string_is_an_acronym_of_words;
 mod p2833_furthest_point_from_origin;
 mod p2843_count_symmetric_integers;
+mod p2848_points_that_intersect_with_cars;
 mod p2908_minimum_sum_of_mountain_triplets_i;
 mod p2909_minimum_sum_of_mountain_triplets_ii;
 mod p2923_find_champion_i;

@@ -95,6 +95,8 @@ for value in "${examples_array[@]}"; do
         output=$(echo $value | rg 'Output:\s(.*)\\n\/\/' -or '$1$2')
         input=$(echo $input | sd '\n' '')
         output=$(echo $output | sd '\n' '')
+        input=$(echo $input | sd '//' '')
+        output=$(echo $output | sd '//' '')
 
         # formatting the input
         #

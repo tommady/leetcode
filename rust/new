@@ -103,11 +103,12 @@ for value in "${examples_array[@]}"; do
         # removing the arg = pattern
         input=$(echo $input | sd '(\w*\s=\s)' '')
         # from [] into vec![]
-        # change ', ' into '__CONNECTION__' for the splitting next
-        input=$(echo $input | sd ',\s' '__CONNECTION__')
-        connection_count=$(echo $input | rg --count-matches '__CONNECTION__')
+        # change ', ' into '\\\\CONNECTION\\\\' for the splitting next
+        input=$(echo $input | sd ',\s' '\\\\CONNECTION\\\\')
+        connection_count=$(echo $input | rg --count-matches --include-zero '\\\\CONNECTION\\\\' || true)
         tmp_input=""
-        readarray -d "__CONNECTION__" -t input_array <<< "$input"
+        readarray -d "\\\\CONNECTION\\\\" -t input_array <<< "$input"
+        declare input_array
         for vector in "${input_array[@]}"; do 
             if [[ "$vector" == "CONNECTION" || "$vector" = "" ]] ; then
                 continue
@@ -122,7 +123,9 @@ for value in "${examples_array[@]}"; do
                 connection_count=$((connection_count-1))
             fi
         done
-        input=$tmp_input
+        if [[ "$tmp_input" =~ "" ]]; then
+            input=$tmp_input
+        fi
         # from "" into "".to_string()
         if result=$(echo $input | rg '".*"'); then
             input=$(echo $input | sd '(?P<string>"[\w|\s]*")' '${string}.to_string()')

@@ -1,6 +1,6 @@
 __PROBLEM_DESC__
 __PROBLEM_HINTS__
-
+#![allow(dead_code)]
 pub struct Solution {}
 
 __PROBLEM_DEFAULT_CODE__

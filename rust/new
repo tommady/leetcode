@@ -108,7 +108,7 @@ for value in "${examples_array[@]}"; do
         connection_count=$(echo $input | rg --count-matches --include-zero '\\\\CONNECTION\\\\' || true)
         tmp_input=""
         readarray -d "\\\\CONNECTION\\\\" -t input_array <<< "$input"
-        declare input_array
+
         for vector in "${input_array[@]}"; do 
             if [[ "$vector" == "CONNECTION" || "$vector" = "" ]] ; then
                 continue

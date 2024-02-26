@@ -64,6 +64,7 @@ mod p2839_check_if_strings_can_be_made_equal_with_operations_i;
 mod p2843_count_symmetric_integers;
 mod p2848_points_that_intersect_with_cars;
 mod p2855_minimum_right_shifts_to_sort_the_array;
+mod p2869_minimum_operations_to_collect_elements;
 mod p2908_minimum_sum_of_mountain_triplets_i;
 mod p2909_minimum_sum_of_mountain_triplets_ii;
 mod p2923_find_champion_i;

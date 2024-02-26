@@ -66,6 +66,7 @@ mod p2848_points_that_intersect_with_cars;
 mod p2855_minimum_right_shifts_to_sort_the_array;
 mod p2869_minimum_operations_to_collect_elements;
 mod p2894_divisible_and_non_divisible_sums_difference;
+mod p2899_last_visited_integers;
 mod p2908_minimum_sum_of_mountain_triplets_i;
 mod p2909_minimum_sum_of_mountain_triplets_ii;
 mod p2923_find_champion_i;

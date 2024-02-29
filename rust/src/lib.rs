@@ -68,6 +68,7 @@ mod p2869_minimum_operations_to_collect_elements;
 mod p2894_divisible_and_non_divisible_sums_difference;
 mod p2899_last_visited_integers;
 mod p2900_longest_unequal_adjacent_groups_subsequence_i;
+mod p2903_find_indices_with_index_and_value_difference_i;
 mod p2908_minimum_sum_of_mountain_triplets_i;
 mod p2909_minimum_sum_of_mountain_triplets_ii;
 mod p2923_find_champion_i;

@@ -87,6 +87,7 @@ mod p3005_count_elements_with_maximum_frequency;
 mod p3010_divide_an_array_into_subarrays_with_minimum_cost_i;
 mod p3014_minimum_number_of_pushes_to_type_word_i;
 mod p3019_number_of_changing_keys;
+mod p3024_type_of_triangle;
 mod p3033_modify_the_matrix;
 mod p3038_maximum_number_of_operations_with_the_same_score_i;
 mod p3042_count_prefix_and_suffix_pairs_i;

@@ -90,6 +90,7 @@ mod p3019_number_of_changing_keys;
 mod p3033_modify_the_matrix;
 mod p3038_maximum_number_of_operations_with_the_same_score_i;
 mod p3042_count_prefix_and_suffix_pairs_i;
+mod p3046_split_the_array;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;

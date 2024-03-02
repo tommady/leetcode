@@ -56,6 +56,7 @@ mod p2540_minimum_common_value;
 mod p2651_calculate_delayed_arrival_time;
 mod p2652_sum_multiples;
 mod p2656_maximum_sum_with_exactly_k_elements;
+mod p2678_number_of_senior_citizens;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2798_number_of_employees_who_met_the_target;
 mod p2806_account_balance_after_rounded_purchase;

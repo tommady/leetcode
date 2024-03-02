@@ -53,6 +53,7 @@ mod p2357_make_array_zero_by_subtracting_equal_amounts;
 mod p2425_bitwise_xor_of_all_pairings;
 mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
+mod p2651_calculate_delayed_arrival_time;
 mod p2652_sum_multiples;
 mod p2656_maximum_sum_with_exactly_k_elements;
 mod p2729_check_if_the_number_is_fascinating;

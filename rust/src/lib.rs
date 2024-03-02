@@ -54,6 +54,7 @@ mod p2425_bitwise_xor_of_all_pairings;
 mod p2469_convert_the_temperature;
 mod p2540_minimum_common_value;
 mod p2652_sum_multiples;
+mod p2656_maximum_sum_with_exactly_k_elements;
 mod p2729_check_if_the_number_is_fascinating;
 mod p2798_number_of_employees_who_met_the_target;
 mod p2806_account_balance_after_rounded_purchase;

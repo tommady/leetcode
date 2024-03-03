@@ -161,7 +161,14 @@ test problem_num:
     RUST_BACKTRACE=1 cargo test --lib test_{{problem_num}}_solution -- --nocapture
 
 push problem_num:
-	git add ./ 
-	git commit -S -m "{{problem_num}} ac"
-	git push
+    #!/usr/bin/env bash
+    set -euo pipefail
+    result=$(fd {{problem_num}} | wc -c)
+    echo $result
+    if [ $result -ne 0 ]; then
+        git add ./ 
+        git commit -S -m "{{problem_num}} ac"
+        git push
+    fi
+    
 

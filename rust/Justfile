@@ -123,14 +123,14 @@ create problem_name:
             fi
             # from "" into "".to_string()
             if result=$(echo $input | rg '".*"'); then
-                input=$(echo $input | sd '(?P<string>"[\w|\s]*")' '${string}.to_string()')
+                input=$(echo $input | sd '(?P<string>"[\w|\s|.|,|\||$|#|@]*")' '${string}.to_string()'
             fi
     
             # formatting the output
             #
             # from "" into "".to_string()
             if result=$(echo $output | rg '".*"'); then
-                output=$(echo $output | sd '(?P<string>"[\w|\s]*")' '${string}.to_string()')
+                output=$(echo $output | sd '(?P<string>"[\w|\s|.|,|\||$|#|@]*")' '${string}.to_string()'
             fi
             # from [] into vec![]
             if result=$(echo $output | rg '\[.*\]'); then

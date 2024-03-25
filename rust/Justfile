@@ -4,7 +4,10 @@ create problem_name:
     #!/usr/bin/env bash
     set -euo pipefail
     problem_name=$(bb {{problem_name}} -s -l -t -)
-    header=$(curl -sIL --max-redirs 1 https://leetcode.com/problems/$problem_name | rg -o -U --multiline-dotall -w '(HTTP/2 200)(.)*')
+    header=$(curl -sIL https://leetcode.com/problems/$problem_name/description/ \
+      -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36' \
+      -H 'upgrade-insecure-requests: 1' \
+      | rg -o -U --multiline-dotall -w '(HTTP/2 200)(.)*')
     csrf=$(echo $header | rg -o -w 'csrftoken=([^;]+);*?')
     # get rid of csrftoken= string
     csrf=${csrf:10}
@@ -36,12 +39,12 @@ create problem_name:
       -H "referer: https://leetcode.com/problems/${problem_name}/" \
       --data-binary @- \
       --compressed)
-    
+
     code_definition=$(echo $response_json | jq -r '.data.question.codeDefinition')
     question_frontend_id=$(echo $response_json | jq -r '.data.question.questionFrontendId')
     content=$(echo $response_json | jq -r '.data.question.content')
     hints=$(echo $response_json | jq -r '.data.question.hints')
-    
+
     content=$(echo $content | sd '&quot;' '"')
     content=$(echo $content | sd '&[\w]+;' ' ')
     content=$(echo $content | sd '&#39;' "'")

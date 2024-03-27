@@ -101,6 +101,7 @@ mod p3042_count_prefix_and_suffix_pairs_i;
 mod p3046_split_the_array;
 mod p3065_minimum_operations_to_exceed_threshold_value_i;
 mod p3074_apple_redistribution_into_boxes;
+mod p3079_find_the_sum_of_encrypted_integers;
 mod p334_increasing_triplet_subsequence;
 mod p347_top_k_frequent_elements;
 mod p349_intersection_of_two_arrays;
